@@ -1,0 +1,9 @@
+ git init 
+  826  ls
+  827  git add *
+  828  git commit -m "Primeiro push do projeto"
+  829  git branch -M main
+  830  git remote add origin https://github.com/Danilodcn/AppLinhaTransmissao.git
+  831  git push -u origin main
+  832  cd ~/Downloads/
+  833  git clone https://github.com/Danilodcn/AppLinhaTransmissao.git

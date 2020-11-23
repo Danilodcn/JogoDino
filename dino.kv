@@ -1,0 +1,118 @@
+#:set n 1
+
+<Gerenciador>:
+	Game:
+		name: "game"
+
+
+<Player>:
+	size_hint: None, None
+	size: 256, 256
+	canvas.before:
+		Color: 
+			rgba: .92, .92, .92, 0
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	
+	Widget:
+		id: pernas
+		canvas:
+			Color:
+				rgba: 1, 0, 0, n
+			Rectangle:
+				
+				pos: root.x + root.width * 0.33, root.y + root.height * 0
+				size: root.width * .2, root.height * .3
+	Widget:
+		id: calda
+		canvas.before:
+			Color:
+				rgba: 1, 1, 0, n
+			Rectangle:
+				pos: root.x, root.y + root.height * 0.3
+				size: root.width * .2, root.height * .26
+	
+	Widget:
+		id: barriga
+		canvas.before:
+			Color:
+				rgba: 0.8, 0.4, 0.6, n
+			Rectangle:
+				pos: root.x + root.width * 0.43, root.y + root.height * 0.12
+				size: root.width * .2, root.height * .3
+	
+	Widget:
+		id: cabeca
+		pos: root.pos
+		size: root.size
+		canvas.before:
+			Color:
+				rgba: 1, 0, 1, n
+			Rectangle:
+				pos:self.x + self.width * 0.46, self.y + self.height * 0.54
+				size: self.width * .32, self.height * .22
+	
+	Widget:
+		id: maos
+		pos: root.pos
+		size: root.size
+		canvas:
+			Color:
+				rgba: 0.5, 0.2, 1, n
+			Rectangle:
+				pos:self.x + self.width * 0.489, self.y + self.height * 0.37
+				size: self.width * .23, self.height * .07
+
+	Image:
+		id: baixo
+
+		source: root.baixo
+		allow_stretch: True
+		x: root.x
+		y: root.y
+
+	Image:
+		id: cima
+		canvas.before:
+		source: root.cima
+		allow_stretch: True
+		x: root.x
+		y: root.y + 8
+
+
+<Obstaculo>:
+	canvas.before:
+		Color:
+			rgba: 1, 0, 1, 1
+		Rectangle:
+			pos: self.pos
+			size:self.size
+
+
+<Game>:
+	z: self.width * .03
+
+	FloatLayout:	
+		canvas:
+			Color: 
+				rgba: .92, .92, .92, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+			Color:
+				rgba: 1, 0, 0, 1
+			Line:
+				points: 0,root.height*.3, root.width, root.height * .3
+				width: root.height * .003
+			
+		Label:
+			text: "Pontos: 0"
+			size_hint: None, None
+			x: root.width *0.75
+			y: root.height*0.95 - root.z
+			font_size: root.z
+			height: root.z
+			width: root.width * .3
+			color: 1, 0, 0, 1
+
